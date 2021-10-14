@@ -1,3 +1,4 @@
+// Version 1.0
 use std::time::Instant;
 
 fn main() {
