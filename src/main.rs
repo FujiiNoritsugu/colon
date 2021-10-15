@@ -15,5 +15,5 @@ fn main() {
 }
 
 fn pom(i:&i32){
-	println!("{}", *i);
+    println!("*i:{}",*i);
 }
