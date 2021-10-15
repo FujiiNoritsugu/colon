@@ -6,20 +6,9 @@ const MAX_SIZE:i32 = 1000000;
 fn main() {
     let start = Instant::now();
 
-    let handle1 = thread::spawn(||{
-        for p in 0..500000{
-            pom(&p);
-        }    
-    });
-
-    let handle2 = thread::spawn(||{
-        for p in 500000..=MAX_SIZE{
-            pom(&p);
-        }    
-    });
-
-    handle1.join().unwrap();
-    handle2.join().unwrap();
+    for p in 0..=MAX_SIZE{
+        thread::spawn(move ||{ pom(&p)});
+    }    
 
     let end = start.elapsed();
     println!("{}.{:03}秒経過しました。", end.as_secs(), end.subsec_nanos() / 1_000_000); 
